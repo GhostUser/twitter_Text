@@ -10,8 +10,14 @@ import os
 
 @csrf_exempt
 def detect(request):
-	# initialize the data dictionary to be returned by the request
-	data = {"success": False}
+	
+    
+    #Put dummy data here
+
+    data = {"success": False}
+
+
+    
 	# check to see if this is a post request
 	if request.method == "POST":
             url = request.POST.get("url", None)
