@@ -7,4 +7,18 @@ import json
 import os
 
 # Create your views here.
-# TODO add the detction alkforithm
+
+@csrf_exempt
+def detect(request):
+	# initialize the data dictionary to be returned by the request
+	data = {"success": False}
+	# check to see if this is a post request
+	if request.method == "POST":
+            url = request.POST.get("url", None)
+            if url is None:
+                data["error"] = "No URL provided."
+                return JsonResponse(data)
+            else:
+                data.update({"success": True})
+	# return a JSON response
+	return JsonResponse(data)
